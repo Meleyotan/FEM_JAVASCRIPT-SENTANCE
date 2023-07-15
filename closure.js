@@ -9,17 +9,18 @@ const generatedFunc = createFunction();
 const result = generatedFunc(3);
 console.log(result)
 
+
 function outer() { 
     let counter = 0;
     function incrementCounter() { 
-        counter++;
+        return counter = counter + 2;
     }
     return incrementCounter;
 }
 
 const myNewFunction = outer();
-myNewFunction();
-myNewFunction();
+console.log(myNewFunction());
+console.log(myNewFunction());
 console.log(myNewFunction())
 
 function parentfunction() { 
@@ -30,8 +31,11 @@ function parentfunction() {
     return receive
 }
 
+//Closures are good for data privacy
+
 const son = parentfunction()
 const daughter = parentfunction()
+
 console.log(son())
 console.log(son())
 console.log(son())
