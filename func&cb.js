@@ -82,7 +82,7 @@ const add3 = (input) => {
     return input + 3;
 }
 
-copyArrayAndManipulate([1, 2, 3], multiplyBy2));
+copyArrayAndManipulate([1, 2, 3], multiplyBy2);
 copyArrayAndManipulate([6, 8, 10], divideBy2)
 copyArrayAndManipulate([1, 2, 3, 4], add3)
 
