@@ -19,3 +19,6 @@ The first day was about understanding JS under the hood, by going in the thread 
 the use of highorder functions that can use functions called callback functions as parameters.
 
 The second day was about closure and its ability to optimize memory perfomance
+
+C.O.V.E = Closed Over Variable Environment
+P.L.S.R.D = Persistent Scope Referenced Data
