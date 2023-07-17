@@ -35,12 +35,18 @@ function parentfunction() {
 
 const son = parentfunction()
 const daughter = parentfunction()
+const attach = son
 
-console.log(son())
-console.log(son())
-console.log(son())
+console.log("This is attach", attach())
+console.log("This is attach", attach())
+console.log("This is attach", attach())
 
 
-console.log(daughter())
-console.log(daughter())
+console.log("This is son", son())
+console.log("This is son", son())
+console.log("This is son", son())
+
+
+console.log("This is daughter", daughter())
+console.log("This is daughter", daughter())
 
