@@ -65,6 +65,27 @@ printHello(); // => should console.log('hello');
 //until all names have been called.Once all names have been called, it should log
 //'Everyone accounted for'.
 
+//CHALLENGE
+function rollCall(names) {
+  let position =0;
+  return function callone(){
+    if (position < names.length){
+      console.log(names[position])
+      position += 1}
+    else{
+      console.log("Everyone accounted for")
+    }
+  }
+  return callone
+}
+
+// /*** Uncomment these to check your work! ***/
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+rollCaller() // => should log 'Victoria'
+rollCaller() // => should log 'Juan'
+rollCaller() // => should log 'Ruth'
+rollCaller() // => should log 'Everyone accounted for'
+
 // Challenge 8
 // Create a function saveOutput that accepts a function (that will accept one argument),
 //and a string(that will act as a password).saveOutput will then return a function that
