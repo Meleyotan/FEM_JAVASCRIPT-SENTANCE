@@ -50,3 +50,8 @@ console.log("This is son", son())
 console.log("This is daughter", daughter())
 console.log("This is daughter", daughter())
 
+const printHello = () => { 
+    console.log("Hello!") 
+}
+
+setTimeout(printHello, 1000)
