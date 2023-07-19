@@ -191,16 +191,20 @@ function isPrime(number) {
 
 
 function range(start, end) {
+  for (i = start; i <= end; i++){
+    console.log(i)
+  }
   //your code goes here...
 
 }
 
 //Uncomment the lines below to test your code
-// range(1,4) //=> 1, 2, 3, 4
-// range(4,2) //=>
+range(1,4) //=> 1, 2, 3, 4
+range(4,2) //=>
     
 // Challenge 9
-// Create a function myIndexOf that takes an array and an element and console.logs the index of the element
+// Create a function myIndexOf that takes an array and an element and console.logs the index of 
+//the element
 // in the array, or - 1 if it doesn't exist.
 // Assume the `ele` will be a primitive data type (no arrays or objects).
 // DO NOT USE THE BUILT - IN`indexOf` METHOD IN YOUR SOLUTION!
@@ -228,15 +232,23 @@ function myIndexOf(array, ele){
 * ============ */
 
 function unique(array) {
+  // let new_array = []
+  // for (i = 0; i < array.length; i++) {
+  //   console.log(array[i])
+  //   if (array[i] is not in new_array) {
+  //     new_array.push(array[i])
+  //   }
+  // }
+  // return new_array
   //your code goes here...
 
 }
 
-// unique([1, 1, 2, 3, 3]) => [1, 2, 3]
-// unique(["a", "a", "c", "aa", "b", "b"]) => ["a", "c", "aa", "b"]
+// console.log(unique([1, 1, 2, 3, 3])) // => [1, 2, 3]
+// unique(["a", "a", "c", "aa", "b", "b"])// => ["a", "c", "aa", "b"]
     
 // Challenge 11
-// Create a function longestWord that that retuns the longest word of a sentence.
+// Create a function longestWord that retuns the longest word of a sentence.
 // If there are ties, the function should return the later word.
 
 /* =========== *
@@ -244,6 +256,9 @@ function unique(array) {
 * ============ */
 
 function longestWord(sentence) {
+  // convert to arrays //split with space separator
+  // map the array to each word length
+  // let each number compare with other numbers in the array
   // your code here...
 
 }
@@ -264,6 +279,9 @@ function longestWord(sentence) {
 * ============ */
 
 function disemvowel(string) {
+  // create a regular expression that detects vowels
+  // loop through each of the string and compare against the regex
+  // let the ones that pass through gets written into a new string
   // your code here...
   
 }
@@ -284,7 +302,8 @@ function disemvowel(string) {
 * Challenge 13 *
 * ============ */
 
-function divisibleByFivePairSum(array){
+function divisibleByFivePairSum(array) {
+  
   // your code here...
 }
 
