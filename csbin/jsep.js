@@ -174,10 +174,21 @@ console.log(letterExists("he!lo", "!")) //=> true
 
 
 function isPrime(number) {
+  //match the number against the conditions of being prime
+    //must be divisible by one and itself only
+  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  for (i = 1; i < array.length; i++){
+    if (number % i == 0) {
+      console.log("Prime")
+    }
+    else { 
+      console.log("Not Prime")
+    }
+  }
   // your code here...
 }
 
-// isPrime(-7): // => false
+isPrime(-7) // => false
 // isPrime(2); // => true
 // isPrime(11); // => true
 // isPrime(15); // => false
