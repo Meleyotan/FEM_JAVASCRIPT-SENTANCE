@@ -12,8 +12,20 @@ function blockFor300ms() {
 
 setTimeout(printHello, 0)
 
-const futureData = fetch('https://twitter.com/will/tweets/1')
+const futureData = fetch('https://dog.ceo/api/breeds/image/random')
+console.log(futureData)
 futureData.then(display)
 
 blockFor300ms()
 console.log("Me first!")
+
+
+const message = 'https://dog.ceo/api/breeds/image/random'
+async function fetchurl(url) {
+    let one = await fetch(url)
+    let two = await one.json();
+    return two;
+}
+
+
+await fetchurl(message)
