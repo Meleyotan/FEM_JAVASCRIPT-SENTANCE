@@ -1,6 +1,6 @@
 // Note: We recommend that after you complete a challenge, you re - comment out the test case for
 // that challenge so the console output is not confusing when working on subsequent challenges.
-    
+
 // Challenge 1
 // Thinking point(no writing code necessary for this challenge): Inspect the code given to you in
 // Challenge 1. In what order should the console logs come out ? Howdy first or Partnah first ?
@@ -25,48 +25,68 @@ function testMe() {
 /* CHALLENGE 2 */
 
 function delayedGreet() {
+  return function greetWelcome() {
+    console.log('welcome')
+  }
+  return greetWelcome
   // ADD CODE HERE
 }
-// Uncomment the following line to check your work!
-// delayedGreet(); // should log (after 3 seconds): welcome
 
-    
-// Challenge 3
-// Create a function helloGoodbye that console logs hello right away, and good bye after 2 seconds.
+// const greet = delayedGreet()
+// setTimeout(greet, 3000) 
 
-/* CHALLENGE 3 */
+// // Uncomment the following line to check your work!
+// // delayedGreet(); // should log (after 3 seconds): welcome
+
+
+// // Challenge 3
+// // Create a function helloGoodbye that console logs hello right away, and good bye after 2 seconds.
+
+// /* CHALLENGE 3 */
 
 function helloGoodbye() {
   // ADD CODE HERE
+  console.log("hello")
+  setTimeout(() => console.log("good bye"), 2000)
 }
-// Uncomment the following line to check your work!
-// helloGoodbye(); // should log: hello // should also log (after 3 seconds): good bye
-    
-// Challenge 4
-// Create a function brokenRecord that console logs hi again every second.Use the End Code button to stop
-// the console logs when you are satisfied that it is working.
 
-/* CHALLENGE 4 */
+// // Uncomment the following line to check your work!
+// helloGoodbye(); // should log: hello // should also log (after 3 seconds): good bye
+
+// // Challenge 4
+// // Create a function brokenRecord that console logs hi again every second.Use the End Code button
+// to stop the console logs when you are satisfied that it is working.
+
+// /* CHALLENGE 4 */
 
 function brokenRecord() {
+  setInterval(() => { console.log("hi again") }, 1000)
   // ADD CODE HERE
 }
-// Uncomment the following line to check your work!
+
+// // Uncomment the following line to check your work!
 // brokenRecord(); // should log (every second): hi again
 
-    
-// Challenge 5
-// Create a function limitedRepeat that console logs hi for now every second, but only for 5 seconds.
-// Research how to use clearInterval if you are not sure how to do this.
 
-/* CHALLENGE 5 */
+// // Challenge 5
+// // Create a function limitedRepeat that console logs hi for now every second, but only for 5 seconds.
+// // Research how to use clearInterval if you are not sure how to do this.
 
+// /* CHALLENGE 5 */
 function limitedRepeat() {
-  // ADD CODE HERE
+  let count = 0
+  let id = setInterval(() => {
+    console.log("hi for now")
+    count++
+    if (count >= 5) {
+      clearInterval(id)
+    }
+  }, 1000)
 }
+
 // Uncomment the following line to check your work!
 // limitedRepeat(); // should log (every second, for 5 seconds): hi for now
-    
+
 // Challenge 6
 // Write a function called everyXsecsForYsecs that will accept three arguments: a function func,
 // a number interval, and another number duration.everyXsecsForYsecs will execute the given function
@@ -79,14 +99,23 @@ function limitedRepeat() {
 
 /* CHALLENGE 6 */
 
-function everyXsecsForYsecs() {
+function everyXsecsForYsecs(func, interval, duration) {
+  let count = 0
+  let id = setInterval(() => {
+    count = count + interval
+    func()
+    if (count >= duration) {
+      clearInterval(id)
+    }
+  }, interval)
+
   // ADD CODE HERE
 }
 // Uncomment the following lines to check your work!
-// function theEnd() {
-//   console.log('This is the end!');
-// }
-// everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+function theEnd() {
+  console.log('This is the end!');
+}
+// everyXsecsForYsecs(theEnd, 2000, 20000); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
 
 // Challenge 7
 // Write a function delayCounter that accepts a number(called 'target') as the first argument and a
@@ -96,13 +125,21 @@ function everyXsecsForYsecs() {
 
 /* CHALLENGE 7 */
 
-function delayCounter(target, wait) {
 
+function delayCounter(target, wait) {
+  let count = 0
+  let id = setInterval(() => {
+    console.log("After",count+1,"second, log",count+1)
+    count++
+    if (count >= target) {
+      clearInterval(id)
+    }
+  }, wait)
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
 // const countLogger = delayCounter(3, 1000)
-// countLogger();
+// delayCounter(3, 5000)
 // After 1 second, log 1
 // After 2 seconds, log 2
 // After 3 seconds, log 3
@@ -115,9 +152,12 @@ function delayCounter(target, wait) {
 
 /* CHALLENGE 8 */
 
-function promised (val) {
+function promised(val) {
+  setTimeout(() => {return console.log(val)}, 2000)
   // ADD CODE HERE
 }
+
+promised("wait for it")
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
 // const createPromise = promised('wait for it...');

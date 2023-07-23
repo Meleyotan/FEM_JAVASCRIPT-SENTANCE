@@ -9,7 +9,7 @@
 // CHALLENGE 1
 function createFunction() {
 	return function printHello(){
-    return console.log("hello")
+    console.log("hello")
   }
   return printHello
 }
