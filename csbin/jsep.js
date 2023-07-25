@@ -158,8 +158,7 @@ function indexOf(string1, string2) {
   return loopThrough
 }
 
-const runThis = indexOf("Meleyotan", "e")
-console.log(runThis())
+// console.log(indexOf("Meleyotan", "e")())
 
 
 
@@ -174,21 +173,22 @@ console.log(runThis())
 
 function letterExists(word, letter) {
   //your code goes here...
-   function loopThat() {
+  function loopThat() {
     for (let i = 0; i < word.length; i++) {
       if (word[i] == letter[0]) {
         return true
       }
-     }
-     return false
+    }
+    return false
   }
   return loopThat
 }
 
-console.log(letterExists("superman", "e")()) //=> true
-console.log(letterExists("starship", "S")()) //=> false
-console.log(letterExists("th1s", "1")()) //=> true
-console.log(letterExists("he!lo", "!")()) //=> true
+// console.log(letterExists("superman", "e")()) //=> true
+// console.log(letterExists("starship", "S")()) //=> false
+// console.log(letterExists("th1s", "1")()) //=> true
+// console.log(letterExists("he!lo", "!")()) //=> true
+// console.log(letterExists([1,2,3,4,5],String(5))())
 
 
 // Challenge 7
@@ -242,8 +242,18 @@ function range(start, end) {
 
 function myIndexOf(array, ele) {
   // your code here...
-
+  function loopThrough() {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] == ele[0]) {
+        return ("Challenge 9", i)
+      }
+    }
+    return -1
+  }
+  return loopThrough
 }
+
+// console.log(myIndexOf([1, 2, 3, 4, 5], String(5))())
 
 //myIndexOf([1, 2, 3, 4, 5], 5) //=> 4
 //myIndexOf(["a", "b", "c"], "a") //=> 0
@@ -258,20 +268,20 @@ function myIndexOf(array, ele) {
 * ============ */
 
 function unique(array) {
-  // let new_array = []
-  // for (i = 0; i < array.length; i++) {
-  //   console.log(array[i])
-  //   if (array[i] is not in new_array) {
-  //     new_array.push(array[i])
-  //   }
-  // }
-  // return new_array
-  //your code goes here...
-
+  let new_array = []
+  for (i = 0; i < array.length; i++) {
+    if (!(new_array.includes(array[i]))) {
+      new_array.push(array[i])
+    }
+  }
+  console.log(new_array)
 }
+// return new_array
+//your code goes here...
 
-// console.log(unique([1, 1, 2, 3, 3])) // => [1, 2, 3]
-// unique(["a", "a", "c", "aa", "b", "b"])// => ["a", "c", "aa", "b"]
+
+unique([1, 1, 2, 3, 3]) // => [1, 2, 3]
+unique(["a", "a", "c", "aa", "b", "b"])// => ["a", "c", "aa", "b"]
 
 // Challenge 11
 // Create a function longestWord that retuns the longest word of a sentence.
@@ -282,8 +292,19 @@ function unique(array) {
 * ============ */
 
 function longestWord(sentence) {
+  let longest = 0
+  let number = []
   // convert to arrays //split with space separator
+  sentence = sentence.split(" ")
   // map the array to each word length
+  sentence.forEach(element => {
+    let current_word = element.length
+    if (current_word > longest) {
+      longest = current_word
+      long = element
+    }
+  });
+  return (longest)
   // let each number compare with other numbers in the array
   // your code here...
 
@@ -291,10 +312,10 @@ function longestWord(sentence) {
 
 //Uncomment the lines below to test your function:
 
-// console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
-// console.log(longestWord('hate having hungry hippos')); // => 'hippos'
-// console.log(longestWord('JavaScript')); // => 'JavaScript'
-// console.log(longestWord('')); // => ''
+console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
+console.log(longestWord('hate having hungry hippos')); // => 'hippos'
+console.log(longestWord('JavaScript')); // => 'JavaScript'
+console.log(longestWord('')); // => ''
 
 
 // Challenge 12
