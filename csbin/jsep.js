@@ -201,12 +201,32 @@ function letterExists(word, letter) {
 
 function isPrime(number) {
   // your code here...
+  if (number === 2) { 
+    return true
+  }
+  
+  if (number < 2) { 
+    return false
+  }
+
+  let root = Math.ceil(Math.sqrt(number))
+
+  for (i = 2; i <=root; i++) { 
+    if (number % i === 0) {
+      return false
+    }
+  }
+  return true
 }
 
-// isPrime(-7) // => false
-// isPrime(2); // => true
-// isPrime(11); // => true
-// isPrime(15); // => false
+console.log(isPrime(-7)) // => false
+console.log(isPrime(2)); // => true
+console.log(isPrime(11)); // => true
+console.log(isPrime(15)); // => false
+console.log(isPrime(8))
+console.log(isPrime(11))
+console.log(isPrime(121))
+console.log(isPrime(127))
 
 // Challenge 8
 // Create a function range that console.logs all numbers between 'start' and 'end' in sequential order.
@@ -326,6 +346,14 @@ console.log(longestWord('')); // => ''
 * ============ */
 
 function disemvowel(string) {
+  const vowel_regex = []
+  let new_string = ""
+  for (let i = 0; i < string.length; i++) { 
+    if (!(string[i] == vowel_regex)) {
+      new_string + string[i]
+    }
+  }
+  return new_string
   // create a regular expression that detects vowels
   // loop through each of the string and compare against the regex
   // let the ones that pass through gets written into a new string
