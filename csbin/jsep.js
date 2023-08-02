@@ -201,15 +201,17 @@ function letterExists(word, letter) {
 
 function isPrime(number) {
   // your code here...
+  //define what a prime number is, it has to meet three conditions
+  //must not be less than 2, any number must not divide it perfectly except itself
   if (number === 2) { 
     return true
   }
-  
+
   if (number < 2) { 
     return false
   }
 
-  let root = Math.ceil(Math.sqrt(number))
+  let root = Math.ceil(Math.sqrt(number))// Math.ceil returns the close greater number to the square root value
 
   for (i = 2; i <=root; i++) { 
     if (number % i === 0) {
@@ -378,8 +380,8 @@ function disemvowel(string) {
 * ============ */
 
 function divisibleByFivePairSum(array) {
-
   // your code here...
+  
 }
 
 
