@@ -102,3 +102,23 @@ console.log(user8)
 console.log(user8)
 
 
+// This block of code below is a syntatic sugar kind of for the one above, they do both the same thing
+// but at this point, the class constructor is used  and the methods are declared without using the
+// dot prototype
+class newestCreator{
+    constructor(name, score) {
+        this.name = name
+        this.score = score
+    }
+    increment() { 
+        this.score++
+    }
+    login() { 
+        console.log("I am logged in!")
+    }
+}
+
+const user9 = new newestCreator("Dan", 8)
+user9.login()
+
+
