@@ -52,6 +52,12 @@ const user5 = userCreator("Bola", 7)
 // console.log(user4.score)
 // console.log(user5.score)
 
+//For the code below, the changes made compared to the one above is, to avoid the Repeating codes,the
+// increment function is stored seperately in a function store, then each user links to it with a
+//prototype chain(__proto__ property) that is indelibly connected to it wiehn
+//Object.create() is used to create the users instead of the one above that is being
+// created by intializing an empty object
+
 
 const userCreator1 = (name, score) => {
     newUser = Object.create(userFunctionStore) 
@@ -61,6 +67,9 @@ const userCreator1 = (name, score) => {
 }
 
 const userFunctionStore = {
+//Also when the function wants to be gotten from the userfunction store, it is important to use the "this"
+//keyword that lets you refer the present user you want to the use the function on
+
 increment: function(){this.score++;},
 login: function(){console.log("Logged in");}
 };
@@ -70,3 +79,26 @@ const user7 = userCreator1("Bola", 7)
 
 user6.login()
 console.log(user6.hasOwnProperty("name"))
+
+
+//for this code below, the use of object.create is eliminated and a new way of creating newUsers is 
+//introduced
+function useCreator(name, score) {
+    this.name = name //assigns name argument to the "name" parameter automatically created using "this"
+    this.score = score//same as above but score
+}
+
+useCreator.prototype //declares a prototype link
+useCreator.prototype.increment = function () { //adds a newfunction to the prototype store
+    this.score++ //this will mandate the function to work on only the present user being created
+}
+
+const user8 = new useCreator("Meleyotan", 10)//the new is there to replace Object.create, it creates an empty object capa
+//capable of having an automatic proto property that can link users to functions
+console.log(user8)
+user8.increment()
+console.log(user8)
+console.log(user8)
+console.log(user8)
+
+
