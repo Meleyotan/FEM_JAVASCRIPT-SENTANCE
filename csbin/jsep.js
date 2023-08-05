@@ -247,8 +247,8 @@ function range(start, end) {
 }
 
 //Uncomment the lines below to test your code
-// range(1,4) //=> 1, 2, 3, 4
-// range(4,2) //=>
+range(1,4) //=> 1, 2, 3, 4
+range(4,2) //=>
 
 // Challenge 9
 // Create a function myIndexOf that takes an array and an element and console.logs the index of 
@@ -299,7 +299,7 @@ function unique(array) {
   console.log(new_array)
 }
 // return new_array
-//your code goes here...
+
 
 
 unique([1, 1, 2, 3, 3]) // => [1, 2, 3]
