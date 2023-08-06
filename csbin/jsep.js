@@ -408,7 +408,7 @@ function divisibleByFivePairSum(array) {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j <= array.length; j++) {
       if ((array[i] + array[j]) % 5 === 0) {
-        new_array.push([i, j])
+        new_array.push([array[i], array[j]])
       }
     }
   }
@@ -418,8 +418,8 @@ function divisibleByFivePairSum(array) {
 
 //Uncomment the lines below to test your function:
 
-console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
-console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
+// console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
+// console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
 
 
 // Challenge 14
@@ -436,10 +436,22 @@ console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 
 * Challenge 14 *
 * ============ */
 
-function highestScore(students) {
+function highestScore(student) {
+  //set a highest score of 0
+  //loop through the score of each student and compare with the highestscore of 0
+  //update the latest highest score
+  //return the highest score after the loop
+  //return the iniitals of the person with the highest score
   // your code here...
-
-
+  let highestscore = 0
+  for (let i = 0; i < student.length; i++) {
+    if (student[i].score > highestscore) {
+      student_name = student[i].name.split(" ")
+      student_id = student[i].id
+      highestscore = student[i].score
+    }
+  }
+  return (student_name[0].charAt(0) + student_name[1].charAt(0) + student_id)
 }
 
 //Uncomment the lines below to test your function:
@@ -579,4 +591,3 @@ function passingStudents(students) {
 // ];
 
 // console.log(passingStudents(students)); // => [ 'Marco', 'Donna' ]
-
