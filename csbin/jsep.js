@@ -133,6 +133,7 @@ function buildGreeting(time, name) {
 }
 
 
+
 // buildGreeting(8, "Maggie") //=> "Good Morning, Maggie!"
 // buildGreeting(12, "John") //=> "Good Afternoon, John!"
 // buildGreeting(22, "Stacey") //=> "Good Evening, Stacey!"
@@ -221,14 +222,14 @@ function isPrime(number) {
   return true
 }
 
-console.log(isPrime(-7)) // => false
-console.log(isPrime(2)); // => true
-console.log(isPrime(11)); // => true
-console.log(isPrime(15)); // => false
-console.log(isPrime(8))
-console.log(isPrime(11))
-console.log(isPrime(121))
-console.log(isPrime(127))
+// console.log(isPrime(-7)) // => false
+// console.log(isPrime(2)); // => true
+// console.log(isPrime(11)); // => true
+// console.log(isPrime(15)); // => false
+// console.log(isPrime(8)); // => false
+// console.log(isPrime(11)); // => true
+// console.log(isPrime(121)); // => false
+// console.log(isPrime(127)); // => true
 
 // Challenge 8
 // Create a function range that console.logs all numbers between 'start' and 'end' in sequential order.
@@ -247,8 +248,8 @@ function range(start, end) {
 }
 
 //Uncomment the lines below to test your code
-range(1,4) //=> 1, 2, 3, 4
-range(4,2) //=>
+// range(1,4) //=> 1, 2, 3, 4
+// range(4,2) //=>
 
 // Challenge 9
 // Create a function myIndexOf that takes an array and an element and console.logs the index of 
@@ -282,8 +283,8 @@ function myIndexOf(array, ele) {
 //myIndexOf(["a", "b", "c"], "d") //=> -1
 
 // Challenge 10
-// Create a function unique that console.logs an array where all the duplicates of the input array have been
-// removed; in other words, every element remaining is unique.
+// Create a function unique that console.logs an array where all the duplicates of the input 
+//array have been removed; in other words, every element remaining is unique.
 
 /* =========== *
 * Challenge 10 *
@@ -302,8 +303,8 @@ function unique(array) {
 
 
 
-unique([1, 1, 2, 3, 3]) // => [1, 2, 3]
-unique(["a", "a", "c", "aa", "b", "b"])// => ["a", "c", "aa", "b"]
+// unique([1, 1, 2, 3, 3]) // => [1, 2, 3]
+// unique(["a", "a", "c", "aa", "b", "b"])// => ["a", "c", "aa", "b"]
 
 // Challenge 11
 // Create a function longestWord that retuns the longest word of a sentence.
@@ -315,29 +316,30 @@ unique(["a", "a", "c", "aa", "b", "b"])// => ["a", "c", "aa", "b"]
 
 function longestWord(sentence) {
   let longest = 0
-  let number = []
+  let words = ""
+  let array = []
   // convert to arrays //split with space separator
-  sentence = sentence.split(" ")
+  array = sentence.split(" ")
   // map the array to each word length
-  sentence.forEach(element => {
-    let current_word = element.length
-    if (current_word > longest) {
-      longest = current_word
-      long = element
+  array.forEach(element => {
+    if (element.length >= longest) {
+      longest = element.length
+      words = element
     }
   });
-  return (longest)
+  return words
   // let each number compare with other numbers in the array
   // your code here...
 
 }
 
+
 //Uncomment the lines below to test your function:
 
-console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
-console.log(longestWord('hate having hungry hippos')); // => 'hippos'
-console.log(longestWord('JavaScript')); // => 'JavaScript'
-console.log(longestWord('')); // => ''
+// console.log(longestWord('my JavaScript is exceptional')); // => 'exceptional'
+// console.log(longestWord('hate having hungry hippos')); // => 'hippos'
+// console.log(longestWord('JavaScript')); // => 'JavaScript'
+// console.log(longestWord('')); // => ''
 
 
 // Challenge 12
@@ -347,12 +349,16 @@ console.log(longestWord('')); // => ''
 * Challenge 12 *
 * ============ */
 
+
+
 function disemvowel(string) {
-  const vowel_regex = []
+  let vowel = ["a", "e", "i", "o", "u"]
+  let string_array = []
   let new_string = ""
-  for (let i = 0; i < string.length; i++) { 
-    if (!(string[i] == vowel_regex)) {
-      new_string + string[i]
+  string_array = string.split("")
+  for (let i = 0; i < string_array.length; i++) { 
+    if (!(vowel.includes(string_array[i].toLowerCase()))) {
+      new_string += string_array[i]
     }
   }
   return new_string
@@ -363,6 +369,23 @@ function disemvowel(string) {
 
 }
 
+/* =========================== *
+* Test on how .includes() work *
+* ============================ */
+
+let a = [1, 2, 3, 4]
+let b = [2, 6, 4, 6, 7, 8, 9]
+let c = []
+function check() {
+  b.forEach(element => {
+    if (!(a.includes(element))) {
+      c.push(element)
+    }
+  })
+  return c
+}
+
+// console.log(check())
 
 //Uncomment the lines below to test your function:
 
@@ -381,14 +404,22 @@ function disemvowel(string) {
 
 function divisibleByFivePairSum(array) {
   // your code here...
-  
+  let new_array = []
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j <= array.length; j++) {
+      if ((array[i] + array[j]) % 5 === 0) {
+        new_array.push([i, j])
+      }
+    }
+  }
+  return new_array
 }
 
 
 //Uncomment the lines below to test your function:
 
-// console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
-// console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
+console.log(divisibleByFivePairSum([1, 5, 2, 0, 4])); // => [ [ 0, 4 ], [ 1, 3 ] ]
+console.log(divisibleByFivePairSum([13, 22, 8, -3, 12])); // => [[ 0, 1 ], [ 0, 3 ], [ 0, 4 ], [ 1, 2 ], [ 2, 3 ], [ 2, 4 ]]
 
 
 // Challenge 14
