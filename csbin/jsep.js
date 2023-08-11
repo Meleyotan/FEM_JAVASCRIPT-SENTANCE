@@ -475,16 +475,29 @@ function highestScore(student) {
 * ============ */
 
 function leastCommonMultiple(num1, num2) {
+  //lowest number which is a multiple of num1 and num2
+  //an array from 1 to 9
   // your code here...
-
+  // let product = num1*num2
+  // if (product % num1 === 0 && product % num2 === 0) {
+  //   return product
+  // }
+  let min = Math.min(num1, num2)
+  while (true) { 
+    if (min % num1 == 0 && min % num2 == 0) {
+      console.log(min)
+      break;
+    }
+    min++
+  }
 }
 
 
 //Uncomment the lines below to test your function:
 
-// console.log(leastCommonMultiple(2, 3)); //=> 6
-// console.log(leastCommonMultiple(6, 10)); //=> 30
-// console.log(leastCommonMultiple(24, 26)); //=> 312
+leastCommonMultiple(2, 3); //=> 6
+leastCommonMultiple(6, 10); //=> 30
+leastCommonMultiple(24, 26); //=> 312
 
 
 // Extension 1
