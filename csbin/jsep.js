@@ -1,6 +1,6 @@
 //Welcome to CSBin!
 
-const { values, times} = require("lodash")
+const { values, times } = require("lodash")
 
 // const { indexOf } = require("lodash");
 
@@ -516,7 +516,7 @@ function leastCommonMultiple3(num1, num2, num3) {
   }
 }
 
-leastCommonMultiple3(2, 3, 9) //18
+// leastCommonMultiple3(2, 3, 9) //18
 
 // Extension 1
 // Create a function arrayBuilder that takes in a count object and returns an array filled with the
@@ -534,6 +534,7 @@ function arrayBuilder(count) {
   //loop up to the number or push the key of that number in number txmes
   let new_array = []
   for (let key in count) {
+    console.log(key)
     let value = count[key]
     if (typeof value === "number") {
       for (let i = 0; i < value; i++) {
@@ -541,13 +542,13 @@ function arrayBuilder(count) {
       }
     }
   }
-return new_array
+  return new_array
 }
 
 //Uncomment the lines below to test your function:
 
-console.log(arrayBuilder({ 'cats': 2, 'dogs': 1, 'cow': 10})); //=> ['cats', 'cats', 'dogs']
-console.log(arrayBuilder({})); //=> []
+// console.log(arrayBuilder({ 'cats': 2, 'dogs': 1, 'cow': 10})); //=> ['cats', 'cats', 'dogs']
+// console.log(arrayBuilder({})); //=> []
 
 
 
@@ -561,18 +562,20 @@ console.log(arrayBuilder({})); //=> []
 
 function objectBuilder(count) {
   // your code here...
+  object = Object.create(null)
+  for (let i = 0; i <= count; i++) {
+    object[i] = i * 5
+  }
+  return object
 }
+
+// objectBuilder(4)
 
 
 //Uncomment the lines below to test your function:
 
-// console.log(objectBuilder(4)); //=> {
-// 0: 0,
-// 1: 5,
-// 2: 10,
-// 3: 15,
-// 4: 20,
-// }
+
+// console.log(objectBuilder(4)); //=> {0: 0, 1: 5, 2: 10, 3: 15, 4: 20,}
 // console.log(objectBuilder(0)); //=> { 0: 0 }
 
 
@@ -587,7 +590,20 @@ function objectBuilder(count) {
 
 function secretCipher(sentence, cipher) {
   // your code here...
-
+  //loop through the sentence
+  //if the character is in the cipher
+  //replace the character with the value of the cipher
+  //if the character is not in the cipher
+  //return the character
+  let new_sentence = ""
+  for (let i = 0; i < sentence.length; i++) {
+    if (cipher[sentence[i]]) { //if the character is in the cipher //
+      new_sentence += cipher[sentence[i]]
+    } else {
+      new_sentence += sentence[i]
+    }
+  }
+  return new_sentence
 }
 
 
@@ -609,28 +625,48 @@ function secretCipher(sentence, cipher) {
 
 function passingStudents(students) {
   // your code here...
-
+  //loop through students
+  //add the scores and get the average
+  //if average grade of students >= 70
+  //push their name to the array
+  //return the array
+  let new_array = []
+  for (let i = 0; i < students.length; i++) {
+    let student = students[i]
+    let grades = student.grades
+    let sum = 0
+    for (let j = 0; j < grades.length; j++){
+      let grade = grades[j]
+      sum = sum + grade.score
+    }
+    let average = sum / grades.length
+    if (average >= 70) {
+      new_array.push(student.name)
+    }
+  }
+  return new_array
 }
+
 
 
 //Uncomment the lines below to test your function:
 
-// var students = [
-//   {
-//     "name": "Marco",
-//     "id": 12345,
-//     "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 75}, {"id": 2, "score": 85}]
-//   },
-//   {
-//     "name": "Donna",
-//     "id": 55555,
-//     "grades": [{"id": 0, "score": 100}, {"id": 1, "score": 100}, {"id": 2, "score": 100}]
-//   },
-//   {
-//     "name": "Jukay",
-//     "id": 94110,
-//     "grades": [{"id": 0, "score": 65}, {"id": 1, "score": 60}, {"id": 2, "score": 65}]
-//   }
-// ];
+var students = [
+  {
+    "name": "Marco",
+    "id": 12345,
+    "grades": [{ "id": 0, "score": 65 }, { "id": 1, "score": 75 }, { "id": 2, "score": 85 }]
+  },
+  {
+    "name": "Donna",
+    "id": 55555,
+    "grades": [{ "id": 0, "score": 100 }, { "id": 1, "score": 100 }, { "id": 2, "score": 100 }]
+  },
+  {
+    "name": "Jukay",
+    "id": 94110,
+    "grades": [{ "id": 0, "score": 65 }, { "id": 1, "score": 60 }, { "id": 2, "score": 65 }]
+  }
+];
 
-// console.log(passingStudents(students)); // => [ 'Marco', 'Donna' ]
+console.log(passingStudents(students)); // => [ 'Marco', 'Donna' ]
