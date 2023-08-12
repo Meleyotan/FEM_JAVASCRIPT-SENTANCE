@@ -1,5 +1,7 @@
 //Welcome to CSBin!
 
+const { values, times} = require("lodash")
+
 // const { indexOf } = require("lodash");
 
 //http://csbin.io
@@ -204,17 +206,17 @@ function isPrime(number) {
   // your code here...
   //define what a prime number is, it has to meet three conditions
   //must not be less than 2, any number must not divide it perfectly except itself
-  if (number === 2) { 
+  if (number === 2) {
     return true
   }
 
-  if (number < 2) { 
+  if (number < 2) {
     return false
   }
 
   let root = Math.ceil(Math.sqrt(number))// Math.ceil returns the close greater number to the square root value
 
-  for (i = 2; i <=root; i++) { 
+  for (i = 2; i <= root; i++) {
     if (number % i === 0) {
       return false
     }
@@ -356,7 +358,7 @@ function disemvowel(string) {
   let string_array = []
   let new_string = ""
   string_array = string.split("")
-  for (let i = 0; i < string_array.length; i++) { 
+  for (let i = 0; i < string_array.length; i++) {
     if (!(vowel.includes(string_array[i].toLowerCase()))) {
       new_string += string_array[i]
     }
@@ -483,7 +485,7 @@ function leastCommonMultiple(num1, num2) {
   //   return product
   // }
   let min = Math.min(num1, num2)
-  while (true) { 
+  while (true) {
     if (min % num1 == 0 && min % num2 == 0) {
       console.log(min)
       break;
@@ -495,10 +497,26 @@ function leastCommonMultiple(num1, num2) {
 
 //Uncomment the lines below to test your function:
 
-leastCommonMultiple(2, 3); //=> 6
-leastCommonMultiple(6, 10); //=> 30
-leastCommonMultiple(24, 26); //=> 312
+// leastCommonMultiple(2, 3); //=> 6
+// leastCommonMultiple(6, 10); //=> 30
+// leastCommonMultiple(24, 26); //=> 312
 
+//Self Challenge
+
+// To solve the LCM of 3 numbers
+
+function leastCommonMultiple3(num1, num2, num3) {
+  let min = Math.min(num1, num2, num3)
+  while (true) {
+    if (min % num1 == 0 && min % num2 == 0 && min % num3 == 0) {
+      console.log(min)
+      break;
+    }
+    min++
+  }
+}
+
+leastCommonMultiple3(2, 3, 9) //18
 
 // Extension 1
 // Create a function arrayBuilder that takes in a count object and returns an array filled with the
@@ -511,14 +529,27 @@ leastCommonMultiple(24, 26); //=> 312
 
 function arrayBuilder(count) {
   // your code here...
-
+  //loop through the object values
+  //if it is a number
+  //loop up to the number or push the key of that number in number txmes
+  let new_array = []
+  for (let key in count) {
+    let value = count[key]
+    if (typeof value === "number") {
+      for (let i = 0; i < value; i++) {
+        new_array.push(key)
+      }
+    }
+  }
+return new_array
 }
-
 
 //Uncomment the lines below to test your function:
 
-// console.log(arrayBuilder({'cats': 2, 'dogs': 1})); //=> ['cats', 'cats', 'dogs']
-// console.log(arrayBuilder({})); //=> []
+console.log(arrayBuilder({ 'cats': 2, 'dogs': 1, 'cow': 10})); //=> ['cats', 'cats', 'dogs']
+console.log(arrayBuilder({})); //=> []
+
+
 
 // Extension 2
 // Create a function objectBuilder that takes in a number and returns an object whose keys are 0 up
@@ -530,7 +561,6 @@ function arrayBuilder(count) {
 
 function objectBuilder(count) {
   // your code here...
-
 }
 
 
